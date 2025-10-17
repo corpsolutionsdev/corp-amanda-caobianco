@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.amandacaobianco.com.br/sitemap.xml
+
+# Disallow specific paths
+Disallow: /src/js/
+Disallow: /src/css/
+
+# Allow images
+Allow: /src/img/
+
+# Crawl-delay
+Crawl-delay: 1
+
