@@ -178,15 +178,18 @@ Este projeto está sob a licença especificada no arquivo LICENSE.
 
 ## 👨‍💻 Desenvolvido por
 
-**Corp Solutions Dev**
-- GitHub: [@corpsolutionsdev](https://github.com/corpsolutionsdev)
+**Corp IT Solutions**
 - Website: [corpitsolutions.tec.br](https://corpitsolutions.tec.br)
+
+**Powered by VWTech Dev**
+- Website: [vwtechdev.com.br](https://vwtechdev.com.br/)
 
 ## 📞 Suporte
 
-Para dúvidas ou suporte, entre em contato através do GitHub ou visite nosso website.
+Para dúvidas ou suporte, entre em contato através dos websites acima.
 
 ---
 
-**© 2025 Amanda Caobianco - Fotografia | Desenvolvido por Corp Solutions Dev**
+**© 2025 Amanda Caobianco - Fotografia**  
+**Desenvolvido por Corp IT Solutions | Powered by VWTech Dev**
 
