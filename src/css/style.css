@@ -30,6 +30,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 body {
@@ -37,12 +40,20 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ================================
@@ -86,6 +97,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: var(--transition);
+    width: 100%;
 }
 
 .navbar.scrolled {
@@ -185,6 +197,10 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1002;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
 }
 
 .mobile-menu-toggle span {
@@ -233,6 +249,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     letter-spacing: 2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-subtitle {
@@ -240,6 +258,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-description,
@@ -351,6 +371,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -804,6 +825,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary-color);
 }
 
+.mobile-break {
+    display: none;
+}
+
+.footer-dev-info .separator {
+    margin: 0 0.5rem;
+}
+
 /* ================================
    Scroll to Top Button
    ================================ */
@@ -994,19 +1023,59 @@ h1, h2, h3, h4, h5, h6 {
    Responsive Design
    ================================ */
 @media (max-width: 968px) {
+    body, section, .container, .hero, .about, .packages, .information, .portfolio, .contact, .footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
     .nav-menu-left,
     .nav-menu-right {
-        display: none;
+        display: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
     }
 
     .logo-container {
         position: relative;
         left: auto;
         transform: none;
+        z-index: 1;
+        order: 1;
+        max-width: 60%;
+    }
+    
+    .logo {
+        height: 70px !important;
+        max-width: 100%;
+    }
+    
+    .navbar.scrolled .logo {
+        height: 60px !important;
     }
 
     .nav-content {
         justify-content: space-between;
+        max-width: 100%;
+        width: 100%;
+        overflow: visible;
+        display: flex !important;
+        align-items: center;
+        padding: 0.5rem 0 !important;
+        min-height: 90px !important;
     }
 
     .nav-menu-mobile {
@@ -1055,8 +1124,31 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .mobile-menu-toggle {
-        display: flex;
-        z-index: 1002;
+        display: flex !important;
+        flex-shrink: 0;
+        order: 2;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 1002 !important;
+    }
+    
+    .navbar {
+        overflow: visible !important;
+        max-width: 100vw !important;
+    }
+    
+    .navbar .container {
+        overflow: visible !important;
+        padding: 0 15px !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 0 15px !important;
+        overflow-x: hidden;
     }
 
     .mobile-menu-toggle.active span:nth-child(1) {
@@ -1094,6 +1186,18 @@ h1, h2, h3, h4, h5, h6 {
         z-index: 999;
     }
 
+    .hero {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100vw;
+    }
+
     .hero-title {
         font-size: 3rem;
     }
@@ -1111,6 +1215,7 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        width: 100%;
     }
 
     .cta-button {
@@ -1119,48 +1224,99 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
 
+    .about, .packages, .information, .portfolio, .contact {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        width: 100%;
     }
 
     .section-title {
         font-size: 2.5rem;
+        padding: 0 15px;
     }
 
     .packages-carousel-wrapper {
-        padding: 0 50px;
+        padding: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
     .carousel-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
+        display: none;
+    }
+
+    .packages-carousel {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+        width: 100%;
+        max-width: 100vw;
     }
 
     .package-card {
-        min-width: 250px;
-        max-width: 250px;
-        min-height: 550px;
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+        box-sizing: border-box;
     }
 
     .info-content {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .info-box {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 1rem;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    .portfolio-item, .portfolio-item img {
+        width: 100%;
+        max-width: 100%;
     }
 
     .contact-buttons {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .contact-button {
         width: 100%;
         max-width: 300px;
+        box-sizing: border-box;
+    }
+    
+    .footer {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .mobile-break {
+        display: inline;
+    }
+    
+    .footer-dev-info .separator {
+        display: none;
     }
 
     .scroll-to-top {
@@ -1181,26 +1337,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 576px) {
+    body, section, .container, .hero, .about, .packages, .information, .portfolio, .contact, .footer {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+    
+    .container {
+        padding: 0 10px !important;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
+        padding: 0 10px;
     }
 
     .hero-subtitle {
         font-size: 1.5rem;
+        padding: 0 10px;
     }
 
     .hero-description,
     .hero-location {
         font-size: 1rem;
+        padding: 0 10px;
     }
 
     .cta-button {
         font-size: 1rem;
         padding: 0.9rem 2rem;
+        max-width: calc(100vw - 40px);
     }
 
     .section-title {
         font-size: 2rem;
+        padding: 0 10px;
     }
 
     .about-text h3 {
@@ -1209,19 +1379,17 @@ h1, h2, h3, h4, h5, h6 {
 
     .package-card {
         padding: 1.5rem 1.2rem;
-        min-width: 240px;
-        max-width: 240px;
-        min-height: 520px;
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+        box-sizing: border-box;
     }
 
     .packages-carousel-wrapper {
-        padding: 0 40px;
-    }
-
-    .carousel-nav {
-        width: 35px;
-        height: 35px;
-        font-size: 0.8rem;
+        padding: 0;
+        width: 100%;
+        max-width: 100vw;
     }
 
     .scroll-to-top {
