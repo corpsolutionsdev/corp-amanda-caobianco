@@ -215,14 +215,14 @@ h1, h2, h3, h4, h5, h6 {
    Hero Section
    ================================ */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     background: #314528;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
     color: var(--secondary-color);
+    padding: 2rem 0;
     overflow: hidden;
 }
 
@@ -233,23 +233,44 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../img/background.webp');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(49, 69, 40, 0.7) 0%, rgba(49, 69, 40, 0.6) 100%);
+    background: linear-gradient(135deg, rgba(49, 69, 40, 0.85) 0%, rgba(49, 69, 40, 0.75) 100%);
     z-index: 1;
 }
 
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 15px;
+}
+
+.hero-image img {
+    width: 110%;
+    height: 100vh;
+    max-height: 100vh;
+    object-fit: contain;
+}
+
 .hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
@@ -263,6 +284,7 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 2px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    color: var(--secondary-color);
 }
 
 .hero-subtitle {
@@ -272,6 +294,7 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     word-wrap: break-word;
     overflow-wrap: break-word;
+    color: var(--secondary-color);
 }
 
 .hero-description,
@@ -403,59 +426,24 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-light);
 }
 
-.packages-carousel-wrapper {
-    position: relative;
-    margin-top: 3rem;
-    padding: 0 60px;
-}
-
-.packages-carousel {
-    display: flex;
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    margin-top: 3rem;
     padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
 }
 
-.packages-carousel::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+@media (max-width: 1200px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--primary-color);
-    color: var(--secondary-color);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(49, 69, 40, 0.3);
-}
-
-.carousel-nav:hover {
-    background: #253319;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(49, 69, 40, 0.5);
-}
-
-.carousel-prev {
-    left: 0;
-}
-
-.carousel-next {
-    right: 0;
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .package-card {
@@ -466,10 +454,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    min-width: 400px;
-    max-width: 400px;
-    flex-shrink: 0;
-    scroll-snap-align: center;
+    width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 600px;
@@ -1034,6 +1019,21 @@ h1, h2, h3, h4, h5, h6 {
 /* ================================
    Responsive Design
    ================================ */
+@media (max-width: 1200px) {
+    .hero-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 968px) {
     body, section, .container, .hero, .about, .packages, .information, .portfolio, .contact, .footer {
         max-width: 100vw;
@@ -1202,21 +1202,44 @@ h1, h2, h3, h4, h5, h6 {
         width: 100vw;
         max-width: 100vw;
         overflow-x: hidden;
+        padding: 2rem 0;
+        background: url('../img/hero-section.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
     }
     
     .hero::before {
-        width: 100%;
-        height: 100%;
+        content: '';
+        position: absolute;
         top: 0;
         left: 0;
-        right: auto;
-        bottom: auto;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(49, 69, 40, 0.75) 0%, rgba(49, 69, 40, 0.65) 100%);
+        z-index: 1;
+    }
+    
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-image {
+        display: none;
     }
     
     .hero-content {
         padding: 0 15px;
         width: 100%;
         max-width: 100vw;
+        text-align: center;
+        position: relative;
+        z-index: 2;
     }
 
     .hero-title {
@@ -1234,6 +1257,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-buttons {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         gap: 1rem;
         width: 100%;
@@ -1262,30 +1286,13 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 15px;
     }
 
-    .packages-carousel-wrapper {
-        padding: 0;
-        width: 100%;
-        max-width: 100vw;
-        overflow-x: hidden;
-    }
-
-    .carousel-nav {
-        display: none;
-    }
-
-    .packages-carousel {
-        display: grid;
+    .packages-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-        overflow-x: hidden;
-        scroll-snap-type: none;
-        width: 100%;
-        max-width: 100vw;
+        padding: 0;
     }
 
     .package-card {
-        min-width: 100%;
-        max-width: 100%;
         width: 100%;
         min-height: auto;
         box-sizing: border-box;
@@ -1407,12 +1414,6 @@ h1, h2, h3, h4, h5, h6 {
         box-sizing: border-box;
     }
 
-    .packages-carousel-wrapper {
-        padding: 0;
-        width: 100%;
-        max-width: 100vw;
-    }
-
     .scroll-to-top {
         width: 40px;
         height: 40px;
@@ -1433,4 +1434,3 @@ h1, h2, h3, h4, h5, h6 {
         display: none;
     }
 }
-

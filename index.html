@@ -84,16 +84,20 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1200">Amanda Caobianco</h1>
-                <h2 class="hero-subtitle" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1200">Fotografia</h2>
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="400">Ensaios de família e de marca pessoal ✨</p>
-                <p class="hero-location" data-aos="fade-up" data-aos-delay="600">Curitiba e região 🌎</p>
-                <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="800">
-                    <a href="https://wa.me/5547984617179?text=Olá!%20Gostaria%20de%20agendar%20meu%20ensaio." class="cta-button cta-primary" target="_blank" rel="noopener noreferrer">Agende Seu Ensaio</a>
-                    <a href="#packages" class="cta-button cta-secondary">Ver Pacotes</a>
+            <div class="hero-wrapper">
+                <div class="hero-image" data-aos="fade-right" data-aos-duration="1200">
+                    <img src="src/img/hero-section.png" alt="Amanda Caobianco - Fotógrafa">
+                </div>
+                <div class="hero-content" data-aos="fade-left" data-aos-duration="1200">
+                    <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1200">Amanda Caobianco</h1>
+                    <h2 class="hero-subtitle" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1200">Fotografia</h2>
+                    <p class="hero-description" data-aos="fade-up" data-aos-delay="400">Ensaios de família e de marca pessoal ✨</p>
+                    <p class="hero-location" data-aos="fade-up" data-aos-delay="600">Curitiba e região 🌎</p>
+                    <div class="hero-buttons" data-aos="zoom-in" data-aos-delay="800">
+                        <a href="https://wa.me/5547984617179?text=Olá!%20Gostaria%20de%20agendar%20meu%20ensaio." class="cta-button cta-primary" target="_blank" rel="noopener noreferrer">Agende Seu Ensaio</a>
+                        <a href="#packages" class="cta-button cta-secondary">Ver Pacotes</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,28 +128,7 @@
     <section id="packages" class="packages">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Pacotes de Ensaio</h2>
-            <div class="packages-carousel-wrapper" data-aos="fade-up" data-aos-delay="100">
-                <button class="carousel-nav carousel-prev" id="packagesPrev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="packages-carousel" id="packagesCarousel">
-                <!-- Mini Package - NOVIDADE (Primeiro) -->
-                <div class="package-card new" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="package-badge new-badge">Novidade</div>
-                    <h3>NOVIDADE: MINI ENSAIO!</h3>
-                    <div class="package-price">R$ 180</div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> 5 FOTOS EDITADAS</li>
-                        <li><i class="fas fa-check"></i> 30 MINUTOS DE ENSAIO</li>
-                        <li><i class="fas fa-check"></i> 1 LOCAL (EXTERNO OU INTERNO)</li>
-                        <li><i class="fas fa-check"></i> GALERIA ONLINE</li>
-                        <li><i class="fas fa-check"></i> FOTO EXTRA: R$25</li>
-                    </ul>
-                    <p class="package-description">Ideal para quem precisa apenas atualizar a foto de perfil, rapidinho e sem enrolação!</p>
-                    <p class="package-note">*verificar informações adicionais</p>
-                    <a href="#" class="package-button" onclick="openWhatsApp('Olá! Gostaria de agendar o MINI ENSAIO!')">Agendar Agora</a>
-                </div>
-
+            <div class="packages-grid" data-aos="fade-up" data-aos-delay="100">
                 <!-- Package Essential -->
                 <div class="package-card" data-aos="zoom-in" data-aos-delay="300">
                     <h3>PACOTE 01: ESSENCIAL!</h3>
@@ -196,10 +179,6 @@
                     <p class="package-note">*verificar informações adicionais</p>
                     <a href="#" class="package-button" onclick="openWhatsApp('Olá! Gostaria de agendar o PACOTE PREMIUM!')">Agendar Agora</a>
                 </div>
-                </div>
-                <button class="carousel-nav carousel-next" id="packagesNext">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </div>
     </section>

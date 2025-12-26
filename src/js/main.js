@@ -111,56 +111,6 @@ scrollToTopBtn.addEventListener('click', () => {
     });
 });
 
-// ================================
-// Packages Carousel - Manual Navigation
-// ================================
-const packagesCarousel = document.getElementById('packagesCarousel');
-const packagesPrev = document.getElementById('packagesPrev');
-const packagesNext = document.getElementById('packagesNext');
-
-if (packagesCarousel && packagesPrev && packagesNext) {
-    const scrollAmount = 420; // Amount to scroll on button click
-
-    // Manual navigation
-    packagesNext.addEventListener('click', () => {
-        packagesCarousel.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    });
-
-    packagesPrev.addEventListener('click', () => {
-        packagesCarousel.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    });
-
-    // Update navigation buttons appearance
-    function updateNavButtons() {
-        const maxScroll = packagesCarousel.scrollWidth - packagesCarousel.clientWidth;
-        
-        if (packagesCarousel.scrollLeft <= 0) {
-            packagesPrev.style.opacity = '0.5';
-            packagesPrev.style.cursor = 'not-allowed';
-        } else {
-            packagesPrev.style.opacity = '1';
-            packagesPrev.style.cursor = 'pointer';
-        }
-
-        if (packagesCarousel.scrollLeft >= maxScroll - 1) {
-            packagesNext.style.opacity = '0.5';
-            packagesNext.style.cursor = 'not-allowed';
-        } else {
-            packagesNext.style.opacity = '1';
-            packagesNext.style.cursor = 'pointer';
-        }
-    }
-
-    packagesCarousel.addEventListener('scroll', updateNavButtons);
-    window.addEventListener('resize', updateNavButtons);
-    updateNavButtons(); // Initial check
-}
 
 // ================================
 // WhatsApp Function
@@ -177,7 +127,7 @@ function openWhatsApp(message) {
 // Portfolio Grid - Load Images
 // ================================
 function loadPortfolioImages() {
-    const totalImages = 32; // Total number of portfolio images
+    const totalImages = 37; // Total number of portfolio images
     
     for (let i = 1; i <= totalImages; i++) {
         const portfolioItem = document.createElement('div');
